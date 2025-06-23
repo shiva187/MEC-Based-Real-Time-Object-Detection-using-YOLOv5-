@@ -4,7 +4,13 @@ Multi-access Edge Computing (MEC) is a transformative technology in 5G networks 
 
 This documentation outlines a setup where a webcam feed from one machine (Machine-1, the Transmitter) is transmitted to another machine (Machine-2, the MEC Server), which performs object detection using YOLOv5. The detections are then visualized through a simple web dashboard.
 
-For this let us consider transmitter as Machine-1 and reciver as Machine-2
+This project demonstrates a simple real-time object detection pipeline using YOLOv5, where:
+
+- Machine-1 (Transmitter) captures webcam video and streams it via RTSP.
+
+- Machine-2 (MEC Server) receives the RTSP stream, processes it using YOLOv5, and hosts a web dashboard to display detections.
+
+- Detected object data is stored in InfluxDB for visualization and analytics.
 
 ## 🖥️ System Architectur
 Meachine 1 (webcam) ------> MEC server(Object Detect) ----> HTTP(Web Dashboar) -----> Infinixdb(Database)
@@ -57,9 +63,9 @@ pip install flask torch torchvision opencv-python numpy
 
 
 RTSP Capture in Python:
-
+```python
 “cap = cv2.VideoCapture("rtsp://192.168.0.116:8554/unicast")”
-
+```
 Change ip address that you got in machine one 
 
 This captures the live stream from Machine-1 and processes it frame-by-frame.
