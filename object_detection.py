@@ -20,9 +20,9 @@ os.makedirs(output_dir, exist_ok=True)
 
 # ======== InfluxDB Setup =========
 influx_url = "http://192.168.0.109:8086"
-influx_token = "YBSoXq_NdBU8Wj8USP4c_NjAng0cD1yDYWQSK0iInP2A9ZQmJbnmI64uDBjUMouGJH7q321Xfujxmk47zpRmvw=="
-influx_org = "crl"
-influx_bucket = "objectdetection"
+influx_token = ""
+influx_org = ""
+influx_bucket = ""
 
 client = InfluxDBClient(url=influx_url, token=influx_token, org=influx_org)
 write_api = client.write_api(write_options=SYNCHRONOUS)
